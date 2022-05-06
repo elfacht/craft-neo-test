@@ -1,0 +1,171 @@
+dateModified: 1561152172
+email:
+  fromEmail: $SYSTEM_EMAIL_ADDRESS
+  fromName: $SYSTEM_EMAIL_SENDER
+  template: null
+  transportType: craft\mail\transportadapters\Sendmail
+  transportSettings: null
+fieldGroups:
+  96f984ce-8346-4d4a-88c7-24800dbbf84d:
+    name: Text
+  c9634d31-bea8-49e3-be82-09eb549cff97:
+    name: _SEO
+  6ed07d8b-031b-4ab0-a33d-ccf9a0d92d8d:
+    name: Assets
+  7b3f1694-64fd-41e7-81de-87ab03b4eae4:
+    name: Controls
+  781883e5-dda4-4998-8eb6-fcf79b63b3e1:
+    name: Tables
+  fee32c9c-90b4-44c2-93a7-30585492973f:
+    name: Relations
+fields:
+  8138392e-d86b-4d8f-a0fc-6037122fa7dc:
+    name: 'SEO Beschreibung'
+    handle: seoDescription
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: '1'
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: c9634d31-bea8-49e3-be82-09eb549cff97
+  17329373-5119-424c-9ac7-a84f05e07987:
+    name: 'SEO Titel'
+    handle: seoTitle
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: c9634d31-bea8-49e3-be82-09eb549cff97
+  4570831d-c2e4-4c12-bb4a-82dc31efa2aa:
+    name: 'SEO Image'
+    handle: seoImage
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:7754ddfc-22ac-4ed9-82f8-60c3310ad070'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:7754ddfc-22ac-4ed9-82f8-60c3310ad070'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: ''
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: c9634d31-bea8-49e3-be82-09eb549cff97
+globalSets:
+  a1f67169-317e-47f5-92eb-72ca5f3495a0:
+    name: SEO
+    handle: seo
+    fieldLayouts:
+      d587e1f2-334f-4d41-9bc2-461dc5beabdf:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              17329373-5119-424c-9ac7-a84f05e07987:
+                required: false
+                sortOrder: 1
+              8138392e-d86b-4d8f-a0fc-6037122fa7dc:
+                required: false
+                sortOrder: 2
+              4570831d-c2e4-4c12-bb4a-82dc31efa2aa:
+                required: false
+                sortOrder: 3
+imageTransforms:
+  c72b13fb-bc45-4ddf-94d1-b607589a7306:
+    format: null
+    handle: ogLarge
+    height: 630
+    interlace: none
+    mode: crop
+    name: 'OG Large'
+    position: center-center
+    quality: 100
+    width: 1200
+sections:
+  e595d563-b6ce-4ffd-aea9-c2eaf3f79579:
+    name: Pages
+    handle: pages
+    type: structure
+    enableVersioning: true
+    propagateEntries: true
+    siteSettings:
+      62e7f631-6c81-4988-8a6f-3bd46b36321a:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: '{parent.uri}/{slug}'
+        template: _router.html
+    structure:
+      uid: 0d289b9f-cb4d-4bcf-9064-25819bb1075d
+      maxLevels: null
+    entryTypes:
+      b28656e9-566b-4316-a1ff-c02278913220:
+        name: Pages
+        handle: pages
+        hasTitleField: true
+        titleLabel: Titel
+        titleFormat: null
+        sortOrder: 1
+siteGroups:
+  d8519c67-8bbe-446d-99d4-582534abdb1c:
+    name: Default
+sites:
+  62e7f631-6c81-4988-8a6f-3bd46b36321a:
+    siteGroup: d8519c67-8bbe-446d-99d4-582534abdb1c
+    name: 'Craft Boiler'
+    handle: default
+    language: de
+    hasUrls: true
+    baseUrl: $DEFAULT_SITE_URL
+    sortOrder: 1
+    primary: true
+system:
+  edition: solo
+  name: $SYSTEM_NAME
+  live: true
+  schemaVersion: 3.1.28
+  timeZone: Europe/Berlin
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''
+volumes:
+  7754ddfc-22ac-4ed9-82f8-60c3310ad070:
+    name: Images
+    handle: images
+    type: craft\volumes\Local
+    hasUrls: true
+    url: $ASSET_BASE_URL
+    settings:
+      path: '@webroot/uploads/images/'
+    sortOrder: 1

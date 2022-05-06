@@ -1,0 +1,56 @@
+{#
+ # Image component with optional lazy loading
+ #
+ # @param {String} original – required
+ # @param {String} preview – required
+ # @param {Number} width – required
+ # @param {Number} height – required
+ # @param {Array} class – optional
+ # @param {String} alt – optional
+ # @param {String} small – optional
+ # @param {String} medium – optional
+ # @param {String} large – optional
+ # @param {String} xlarge – optional
+ # @param {String} link – optional
+ # @param {String} linkTitle – optional
+ #}
+{% set lazyAttr = lazy ?? null ? lazyLoad('attr') : null %}
+{% set lazyClass = lazy ?? null ? lazyLoad('class') : null %}
+{% if link ?? null %}
+    {% set linkStart %}
+        <a href="{{link}}" title="{{linkTitle ?? null}}">
+    {% endset %}
+    {% set linkEnd %}
+        </a>
+    {% endset %}
+{% endif %}
+
+<div class="{{class ?? null}} c-image" style="{{imageRatio(height, width)}}">
+    {{linkStart ?? null}}
+
+    {# Optional thumbnail, should be default,
+        but can be pass over when using transparent PNGs #}
+    {% if preview ?? null %}
+        <img src="{{ preview ?? null }}" class="c-image__thumb" width="{{width}}" height="{{height}}" role="presentation">
+    {% endif %}
+
+    <picture>
+        {# Responsive images #}
+        {% if xlarge ?? null %} <source {{lazyAttr}}srcset="{{ xlarge }}" class="{{lazyClass}}" media="{{imageMediaQueries('xlarge')}}">{% endif %}
+        {% if large ?? null %}  <source {{lazyAttr}}srcset="{{ large }}" class="{{lazyClass}}" media="{{imageMediaQueries('large')}}">{% endif %}
+        {% if medium ?? null %} <source {{lazyAttr}}srcset="{{ medium }}" class="{{lazyClass}}" media="{{imageMediaQueries('medium')}}">{% endif %}
+        {% if small ?? null %}  <source {{lazyAttr}}srcset="{{ small }}" class="{{lazyClass}}" >{% endif %}
+
+        {# Original image #}
+        <img
+            {{lazyAttr}}src="{{ original ?? null }}"
+            {% if lazy ?? null %}
+                src="{{alias('@assetBaseUrl')}}/img/placeholder.gif"
+            {% endif %}
+            class="c-image__original {{lazyClass}}"
+            alt="{{alt ?? null}}"
+            width="{{width}}"
+            height="{{height}}">
+    </picture>
+    {{linkEnd ?? null}}
+</div>

@@ -1,0 +1,35 @@
+{#
+ # Critical CSS
+ #
+ # - Check if CSS version cookie is set.
+ # - Render inline CSS and preload uncritical CSS.
+ # - Render regular CSS file if cookie is set (CSS might live in cache now).
+ # - Disable ciritcal CSS for dev and Live Preview.
+ # - Disable ciritcal CSS entirely in general.php
+ # - Set `staticAssetsVersionCSS` number by CSS file date.
+ #}
+{% set staticAssetsVersionCSS = assetDate('assets/css/app.css') %}
+{% if craft.app.config.general.setup.criticalCss %}
+    {% set cacheVal = getCookie('critical-css') %}
+    {% if not cacheVal or cacheVal != staticAssetsVersionCSS and not craft.app.config.general.devMode or craft.app.request.isLivePreview %}
+        {{ setCookie('critical-css', staticAssetsVersionCSS, now | date_modify("+7 days").timestamp ) }}
+        {% block _inline_css %}
+        {% endblock %}
+        <link rel="preload" href="{{ siteUrl }}assets/css/app.{{staticAssetsVersionCSS}}.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript>
+            <link rel="stylesheet" href="{{ siteUrl }}assets/css/app.{{staticAssetsVersionCSS}}.css">
+        </noscript>
+        <script>
+            {{ source('assets/js/_inline/loadCSS.js') }}
+            {{ source('assets/js/_inline/csspreload.js') }}
+        </script>
+    {% else %}
+        {% if craft.app.config.general.devMode %}
+            <link rel="stylesheet" href="{{ siteUrl }}assets/css/app.css">
+        {% else %}
+            <link rel="stylesheet" href="{{ siteUrl }}assets/css/app.{{staticAssetsVersionCSS}}.css">
+        {% endif %}
+    {% endif %}
+{% else %}
+    <link rel="stylesheet" href="{{ siteUrl }}assets/css/app.css">
+{% endif %}

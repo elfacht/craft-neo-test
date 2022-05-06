@@ -1,0 +1,8 @@
+baseUrl: $DEFAULT_SITE_URL
+handle: default
+hasUrls: true
+language: de
+name: 'Craft Boiler'
+primary: true
+siteGroup: d8519c67-8bbe-446d-99d4-582534abdb1c
+sortOrder: 1

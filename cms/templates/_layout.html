@@ -1,0 +1,77 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html lang="{{currentSite.language}}">
+<head>
+
+	{#
+	 # HEAD block
+	 #
+	 # inherit the current head with {{ parent() }}
+	 #}
+	{% block head %}
+		{# Meta (Title, SEO, Icons, etc.) #}
+		{{styleguide({
+			type: '_',
+			name: 'head-meta',
+			options: {
+				entry: entry ?? category ?? null,
+				category: category ?? null,
+				title: title ?? null
+			}
+  		})}}
+
+		{# -- CRITICAL CSS -- #}
+		{{styleguide({
+		   type: '_',
+		   name: 'head-css',
+		   options: {
+
+		   }
+		})}}
+
+		{# SVG #}
+		{{styleguide({
+			type: '_',
+			name: 'head-svg'
+  		})}}
+
+		{# Tracking #}
+		{{styleguide({
+			type: '_',
+			name: 'head-tracking'
+  		})}}
+	{% endblock %}
+</head>
+
+<body class="{% block bodyClasses %}{% endblock %}">
+
+	<div id="top" class="global-wrapper">
+		<main class="global-main" role="main">
+		 {# CONTENT block #}
+		{% block content %}{% endblock %}
+		</main>
+	</div>
+
+	<div class="js-svg c-icon-defs"></div>
+	{{styleguide({
+		type: '_',
+		name: 'javascript'
+	})}}
+
+	{#
+	 # FOOTER block
+	 #}
+	{% block footer %}{% endblock %}
+
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{#-- Javascript includes --#}
+{% set staticAssetsVersion = assetDate('assets/js/bundle.min.js') %}
+{% set jsType = craft.app.config.general.devMode ? null : '.min' %}
+
+<script nomodule src="{{alias('@assetBaseUrl')}}/js/bundle{{jsType}}.js"></script>
+{% js "#{alias('@assetBaseUrl')}/js/bundle#{jsType}.#{staticAssetsVersion}.js" with {
+    async: true,
+    type: 'module'
+} %}

@@ -1,0 +1,67 @@
+{#
+ # Common HEAD meta fields
+ #}
+
+{% spaceless %}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{# Set page title for browser tab #}
+{% set pageTitle = (entry ?? null and entry.slug == '__home__') ? systemName ~ ' – ' ~ settings.pageTitle ?? null : systemName %}
+
+<title>
+	{% if title ?? null and entry.slug != '__home__' %}
+		{{ title }}
+	{% else %}
+		{{settings.pageTitle ?? systemName}}
+	{% endif %}
+</title>
+<link rel="home" href="{{ siteUrl }}" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{alias('@assetBaseUrl')}}/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{alias('@assetBaseUrl')}}/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{alias('@assetBaseUrl')}}/favicon-16x16.png">
+<link rel="manifest" href="{{alias('@assetBaseUrl')}}/site.webmanifest">
+<link rel="mask-icon" href="{{alias('@assetBaseUrl')}}/safari-pinned-tab.svg" color="#77a3bc">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+{% set seoMaxLength = 155 %}
+{% set seoDescription = entry.seoDescription ?? entry.excerpt ?? seo.seoDescription ?? null %}
+{% set description = truncate(seoDescription|striptags, seoMaxLength) %}
+{% set seoUrl = entry.url ?? craft.app.request.absoluteUrl ?? null %}
+{% set seoTitle = entry.seoTitle ?? title ?? user ?? null %}
+
+{#-- Optimum image size for Open Graph/Facebook/Twitter --#}
+{% if entry.seoImage.one() is defined and entry.seoImage.one() is not empty  %}
+	{% set seoImage = entry.seoImage.one() %}
+{% elseif entry.featuredImage.one() is defined  and entry.featuredImage.one() is not empty %}
+	{% set seoImage = entry.featuredImage.one() %}
+{% else %}
+	{% set seoImage = seo.seoImage.one() ?? null %}
+{% endif %}
+
+{% set seoImage = entry.seoImage.one() ?? entry.heroImage.one() ?? entry.featuredImage.one() ?? seo.seoImage.one() ?? null %}
+
+{# Set SEO site title / remove prefix on homepage #}
+{% set seoPageTitle = (entry ?? null and entry.slug == '__home__') ? systemName  ~ ': ' ~ settings.pageTitle ?? null : seoTitle ~ ' | ' ~ systemName %}
+{% set pageTitle = settings.pageTitle ? ' – ' ~ settings.pageTitle : null %}
+{% set seoSiteTitle = seo.seoTitle ??  systemName ~ pageTitle ?? null %}
+
+<meta name="description" itemprop="description" content="{{description}}" />
+<meta property="og:url" content="{{ seoUrl }}">
+<meta property="og:site_name" content="{{seoSiteTitle}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{seoPageTitle}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{ seoImage.url('ogLarge') ?? null }}">
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<script type="application/ld+json">
+	{ "@context": "http://schema.org","@type": "WebSite","description": "{{description}}","image": "{{ seoImage.url('ogLarge') ?? null }}","url": "{{ seoUrl }}"}
+</script>
+<link rel="canonical" href="{{seoUrl}}">
+
+{% endspaceless %}

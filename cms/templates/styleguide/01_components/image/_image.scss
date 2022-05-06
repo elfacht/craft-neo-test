@@ -1,0 +1,42 @@
+//
+// Image with preview image
+//
+
+.c-image {
+  aspect-ratio: var(--image-ratio, 16 / 9);
+  background-color: var(--color-secondary);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+  }
+}
+
+
+
+/** ***********
+ * Thumbnail
+ */
+.c-image__thumb {
+  filter: blur(20px);
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+
+
+/** ***********
+ * Original image
+ */
+.c-image__original {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

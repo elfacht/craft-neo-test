@@ -1,0 +1,16 @@
+contentColumnType: text
+fieldGroup: c9634d31-bea8-49e3-be82-09eb549cff97
+handle: seoDescription
+instructions: ''
+name: 'SEO Beschreibung'
+searchable: true
+settings:
+  charLimit: ''
+  code: ''
+  columnType: text
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

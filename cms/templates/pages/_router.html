@@ -1,0 +1,24 @@
+{#
+ # Template router
+ #
+ # Set your template route in the CP settings to `pages/_router`
+ # to deligate the page URLs by entry type.
+ #}
+{% set notfound = '404' %}
+
+{# Route entry types #}
+{% if entry ?? null %}
+    {% switch entry.type.handle %}
+        {% default %}
+        {% include ["pages/#{entry.type.handle}", notfound] %}
+    {% endswitch %}
+
+{% elseif category ?? null %}
+    {% switch category.group.handle %}
+        {% default %}
+            {# Route category groups #}
+            {% include ['pages/categories', notfound] with { category: category } %}
+    {% endswitch %}
+{% else %}
+{# Custom routings #}
+{% endif %}

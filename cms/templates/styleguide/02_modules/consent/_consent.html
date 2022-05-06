@@ -1,0 +1,23 @@
+{#
+ # Cookie consent
+ #
+ # @var string macros – required
+ #
+ # @TODO Remove macros!
+ #}
+{% import macros as helper %}
+
+{% set cookieVal = getCookie('cookieConsent') %}
+
+{% if not cookieVal %}
+<div class="m-consent is-active" data-consent>
+  <div class="m-consent__inner">
+    <div class="m-consent__body">
+      [BODY]
+    </div>
+    <div class="m-consent__button">
+      {# Button with data: 'data-consent-link' #}
+    </div>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,149 @@
+// Global base styles
+//
+//
+//
+
+/** **************
+ * Basic styles
+ */
+ html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  text-align: center; // tmp
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+
+  // &.overflow-hidden {
+  //   overflow: scroll;
+  //   overflow-x: hidden;
+  //   overflow-y: auto;
+  // }
+
+  h1 {
+    font: var(--font-heading-primary);
+  }
+}
+
+
+
+
+
+/** ***********
+ * Text selection
+ */
+// ::-moz-selection {
+//   background: palette(brand, 'yuma');
+//   color: palette(ui, 'black');
+//   text-shadow: none;
+// }
+
+// ::selection {
+//   background: palette(brand, 'yuma');
+//   color: palette(ui, 'black');
+//   text-shadow: none;
+// }
+
+
+
+
+
+
+/** ***********
+ * Palceholder styles
+ */
+// ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+//   @include u-input-placeholder;
+// }
+
+// ::-moz-placeholder { /* Firefox 19+ */
+//   @include u-input-placeholder;
+// }
+
+// :-ms-input-placeholder { /* IE 10+ */
+//   @include u-input-placeholder;
+// }
+
+// :-moz-placeholder { /* Firefox 18- */
+//   @include u-input-placeholder;
+// }
+
+
+
+
+
+
+
+
+/** ***********
+ * Links
+ */
+a:not(img) {
+  color: initial;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/** ***********
+ * Figure reset
+ */
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+/** ***********
+ * Sticky footer
+ */
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+}
+
+
+.global-main {
+  flex: 1 0 auto;
+
+  &:after {
+    content: '\00a0'; /* &nbsp; */
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}

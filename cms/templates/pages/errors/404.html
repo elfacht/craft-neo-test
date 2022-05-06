@@ -1,0 +1,16 @@
+{#
+ # 404 template
+ # ---------------
+ #}
+
+{% extends "_layout-error" %}
+
+{% block _inline_css %}
+    <style>
+        {{ source ('assets/css/notfound_critical.min.css', ignore_missing = true) }}
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>404</h1>
+{% endblock %}

@@ -1,0 +1,19 @@
+fieldLayouts:
+  d587e1f2-334f-4d41-9bc2-461dc5beabdf:
+    tabs:
+      -
+        fields:
+          4570831d-c2e4-4c12-bb4a-82dc31efa2aa:
+            required: false
+            sortOrder: 3
+          8138392e-d86b-4d8f-a0fc-6037122fa7dc:
+            required: false
+            sortOrder: 2
+          17329373-5119-424c-9ac7-a84f05e07987:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+handle: seo
+name: SEO
+sortOrder: 1

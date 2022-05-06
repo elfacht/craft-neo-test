@@ -1,0 +1,20 @@
+{#
+ # Generic page template
+ # ---------------
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+{% extends "_layout" %}
+
+{% block _inline_css %}
+    <style>
+        {{ source ('assets/css/pages/page_critical.min.css', ignore_missing = true) }}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{entry.title}}</h1>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+//
+// Back to top link
+//
+.m-backtotop {
+  @include u-baseline(2, right);
+  position: fixed;
+  bottom: -(rem-calc(60));
+  opacity: 0;
+  transition: all .5s var(--transition-default);
+  transform: rotate(-90deg);
+  z-index: index($elements, backtotop);
+
+  @include breakpoint(medium) {
+    @include u-baseline(3, right);
+  }
+
+  @include breakpoint(xlarge) {
+    @include u-baseline(4, right);
+  }
+
+  .c-icon {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+/** ***********
+ * Link
+ */
+.m-backtotop__link {
+  @include u-baseline(1, padding);
+  @include u-baseline(5, width);
+  @include u-baseline(5, height);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  display: block;
+
+  &:hover {
+    color: var(--color-white);
+  }
+}
+
+
+
+
+
+
+
+
+/** ***********
+ * Modifier: is active
+ */
+.m-backtotop--active {
+  @include u-baseline(4, bottom);
+  opacity: 1;
+}

@@ -1,0 +1,16 @@
+{#
+ # SVG JS include
+ #
+ # @see https://osvaldas.info/caching-svg-sprite-in-localstorage
+ #}
+{% minify %}
+    {# Get filetime of SVG sprite to set revision #}
+    {% set svgFile = 'assets/svg/svg.html' %}
+    {% set filemtime = assetDate(svgFile) %}
+
+    <script>
+        var INLINE_SVG_REVISION = {{filemtime}};
+        var INLINE_SVG_FILE = '{{svgFile}}';
+        {{source('assets/js/_inline/svg.js', ignore_missing = true)}}
+    </script>
+{% endminify %}

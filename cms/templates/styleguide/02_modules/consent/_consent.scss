@@ -1,0 +1,75 @@
+//
+// Cookie consent
+//
+.m-consent {
+  background-color: var(--color-white);
+  box-shadow: 0 0 16px rgba(0, 0, 0, .2);
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: index($elements, consent);
+
+  &.is-active {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+/** ***********
+ * Inner wrapper
+ */
+.m-consent__inner {
+  @include u-baseline(2, padding-top);
+  @include u-baseline(2, padding-bottom);
+}
+
+
+
+
+
+
+
+/** ***********
+ * Body
+ */
+.m-consent__body {
+  a {
+    color: inherit;
+    border-bottom: 2px solid currentColor;
+    font-weight: bold;
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+/** ***********
+ * Button
+ */
+.m-consent__button {
+  //
+}

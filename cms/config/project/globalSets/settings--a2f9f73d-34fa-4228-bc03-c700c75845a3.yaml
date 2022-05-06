@@ -1,0 +1,19 @@
+fieldLayouts:
+  aa83b043-c5e5-416e-8da9-e353b89cbef1:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a894ec0d-6b2f-49fa-a0d3-392d4cd0637a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: settings
+name: Settings
+sortOrder: 2

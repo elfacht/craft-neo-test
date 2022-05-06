@@ -1,0 +1,30 @@
+dateModified: 1634932357
+email:
+  fromEmail: $SYSTEM_EMAIL_ADDRESS
+  fromName: $SYSTEM_EMAIL_SENDER
+  template: null
+  transportSettings: null
+  transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+meta:
+  __names__:
+    a1f67169-317e-47f5-92eb-72ca5f3495a0: SEO # SEO
+    a2f9f73d-34fa-4228-bc03-c700c75845a3: Settings # Settings
+plugins:
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: $SYSTEM_NAME
+  schemaVersion: 3.7.8
+  timeZone: Europe/Berlin

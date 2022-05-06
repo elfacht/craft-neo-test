@@ -1,0 +1,22 @@
+{% if not craft.app.request.isPreview and craft.app.config.general.enableTracking %}
+    <!-- Matomo -->
+    {% js %}
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['disableCookies']);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        function embedTrackingCode() {
+        var u="//stats.spillout.de/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '{{craft.app.config.general.trackerId ?? null}}']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        }
+
+        setTimeout(function () {
+        embedTrackingCode();
+        }, 5);
+    {% endjs %}
+    <!-- End Matomo Code -->
+{% endif %}

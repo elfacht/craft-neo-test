@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 96f984ce-8346-4d4a-88c7-24800dbbf84d
+handle: pageTitle
+instructions: ''
+name: 'Page Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
