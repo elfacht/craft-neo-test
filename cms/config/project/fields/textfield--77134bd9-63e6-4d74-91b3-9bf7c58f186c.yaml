@@ -1,8 +1,9 @@
+columnSuffix: aywjkpxz
 contentColumnType: text
-fieldGroup: 96f984ce-8346-4d4a-88c7-24800dbbf84d
-handle: pageTitle
+fieldGroup: 238b3570-fc81-4244-bf73-c9cdb18a2c1b # Common
+handle: textfield
 instructions: ''
-name: 'Page Title'
+name: Textfield
 searchable: false
 settings:
   byteLimit: null
@@ -11,7 +12,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: ''
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

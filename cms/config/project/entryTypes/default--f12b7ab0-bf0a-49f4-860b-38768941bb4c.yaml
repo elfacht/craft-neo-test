@@ -1,5 +1,5 @@
 fieldLayouts:
-  b09b5cf0-13c5-44c4-bfe9-7610254666c8:
+  9259ea61-b7fa-4fd3-85fe-134ccfb83f0b:
     tabs:
       -
         elements:
@@ -7,7 +7,6 @@ fieldLayouts:
             autocapitalize: true
             autocomplete: false
             autocorrect: true
-            autofocus: false
             class: null
             disabled: false
             id: null
@@ -20,7 +19,6 @@ fieldLayouts:
             placeholder: null
             readonly: false
             requirable: false
-            required: false
             size: null
             step: null
             tip: null
@@ -28,12 +26,21 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
+          -
+            fieldUid: d2bf91da-aaba-431f-8a30-62d58594b642 # Matrixfield
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Inhalt
         sortOrder: 1
-handle: pages
+handle: default
 hasTitleField: true
-name: Pages
-section: e595d563-b6ce-4ffd-aea9-c2eaf3f79579
+name: 'Standard (matrix)'
+section: 5ec8d44c-a127-41bd-b445-c8ef15c7fbd0 # Pages
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
